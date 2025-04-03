@@ -53,6 +53,7 @@ except Exception as e:
     print("❌ Neo4j connection failed:", e)
 
 #mongo related
+print("started")
 mongo_client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URI)
 db = mongo_client["virtual_classroom"]  # Ensure "virtual_classroom" is your actual database name
 collection = db["notifications"] 
