@@ -43,11 +43,14 @@ NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD")
 MONGO_URI = os.getenv("MONGO_URI")
 
 try:
-    with GraphDatabase.driver(URI, auth=AUTH) as driver:
-        driver.verify_connectivity()
-    print("✅ Knowledge Base connection successful!")
+    driver = GraphDatabase.driver(
+        NEO4J_URI,
+        auth=(NEO4J_USERNAME, NEO4J_PASSWORD)
+    )
+    driver.verify_connectivity()
+    print("✅ Neo4j connection successful!")
 except Exception as e:
-    print("❌ Knowledge Base connection failed:", e)
+    print("❌ Neo4j connection failed:", e)
 
 #mongo related
 mongo_client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URI)
