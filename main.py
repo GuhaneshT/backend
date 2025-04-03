@@ -27,6 +27,7 @@ from datetime import datetime
 import os
 from dotenv import load_dotenv
 from fastapi.staticfiles import StaticFiles
+import uvicorn
 
 
 kw_model = KeyBERT()
@@ -835,3 +836,6 @@ async def my_submissions(user: dict = Depends(verify_token)):
 
 
 
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))  # Render sets PORT dynamically
+    uvicorn.run(app, host="0.0.0.0", port=port)
