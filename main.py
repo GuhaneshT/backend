@@ -92,6 +92,7 @@ app.add_middleware(
        allow_origins=[
         "https://virtualclassroom-biw9.onrender.com",  # Your frontend
         "http://localhost:5173",
+        "https://frontend-e6pr.onrender.com"
     
         # For local development
     ],  # Change "*" to specific origins if needed
