@@ -94,7 +94,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all headers
 )
 
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+
 
 # redis_host = "localhost"  # The host of the remote Redis service
 # redis_port = 6379  # Usually 6379 for Redis # If authentication is required
