@@ -709,7 +709,7 @@ async def classroom_websocket(websocket: WebSocket, class_id: str):
         # Receive messages from the WebSocket and publish them to Redis
         while True:
             message = await websocket.receive_text()
-            await redis_client.publish(class_id, f"{user["id"]}: {message}")
+            await redis_client.publish(class_id, f"{user['id']}: {message}")
 
     except WebSocketDisconnect:
         # Handle disconnection, cleanup resources
