@@ -29,6 +29,22 @@ from dotenv import load_dotenv
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+       allow_origins=[
+           "*",
+        "https://virtualclassroom-biw9.onrender.com",  # Your frontend
+        "http://localhost:5173",
+        "https://frontend-e6pr.onrender.com"
+    
+        # For local development
+    ],  # Change "*" to specific origins if needed
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 kw_model = KeyBERT()
 
@@ -85,22 +101,7 @@ REDIRECT_URI = os.getenv("REDIRECT_URI","http://127.0.0.1:8000/oauth2callback")
 TOKEN_FILE = "token.json"  # Token storage
 
 
-app = FastAPI()
 
-app.add_middleware(
-    CORSMiddleware,
-       allow_origins=[
-           "*",
-        "https://virtualclassroom-biw9.onrender.com",  # Your frontend
-        "http://localhost:5173",
-        "https://frontend-e6pr.onrender.com"
-    
-        # For local development
-    ],  # Change "*" to specific origins if needed
-    allow_credentials=True,
-    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
-    allow_headers=["*"],  # Allow all headers
-)
 
 
 
