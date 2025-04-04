@@ -90,6 +90,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
        allow_origins=[
+           "*",
         "https://virtualclassroom-biw9.onrender.com",  # Your frontend
         "http://localhost:5173",
         "https://frontend-e6pr.onrender.com"
